@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище HotelDBModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Должность">
+    <Key>
+      <PropertyRef Name="ID_должности" />
+    </Key>
+    <Property Name="ID_должности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Оклад" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Категория номера">
+    <Key>
+      <PropertyRef Name="ID_типа" />
+    </Key>
+    <Property Name="ID_типа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Описание" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="ID_клиента" />
+    </Key>
+    <Property Name="ID_клиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Паспорт" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Телефон" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Номера">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Тип" Type="int" Nullable="false" />
+    <Property Name="Вместимость" Type="int" Nullable="false" />
+    <Property Name="Цена" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Операции">
+    <Key>
+      <PropertyRef Name="ID_Операц" />
+    </Key>
+    <Property Name="ID_Операц" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="ID_сотрудника" />
+    </Key>
+    <Property Name="ID_сотрудника" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_должности" Type="int" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Телефон" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Учет">
+    <Key>
+      <PropertyRef Name="ID_Учета" />
+    </Key>
+    <Property Name="ID_Учета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Операция" Type="int" Nullable="false" />
+    <Property Name="ID_Номера" Type="int" Nullable="false" />
+    <Property Name="ID_Клиента" Type="int" Nullable="false" />
+    <Property Name="Дата въезда" Type="datetime" Nullable="false" />
+    <Property Name="Дата выезда" Type="datetime" />
+    <Property Name="Цена" Type="float" Nullable="false" />
+    <Property Name="Сотрудник" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Хранилище HotelDBModel1Container">
+    <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Категория номера" EntityType="Self.Категория номера" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Номера" EntityType="Self.Номера" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Операции" EntityType="Self.Операции" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Учет" EntityType="Self.Учет" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

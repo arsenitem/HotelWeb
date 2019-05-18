@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Должность">
+    <Key>
+      <PropertyRef Name="ID_должности" />
+    </Key>
+    <Property Name="ID_должности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Оклад" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Категория_номера">
+    <Key>
+      <PropertyRef Name="ID_типа" />
+    </Key>
+    <Property Name="ID_типа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Описание" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="ID_клиента" />
+    </Key>
+    <Property Name="ID_клиента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ФИО" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Паспорт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Номера">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Тип" Type="Int32" Nullable="false" />
+    <Property Name="Вместимость" Type="Int32" Nullable="false" />
+    <Property Name="Цена" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Операции">
+    <Key>
+      <PropertyRef Name="ID_Операц" />
+    </Key>
+    <Property Name="ID_Операц" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="ID_сотрудника" />
+    </Key>
+    <Property Name="ID_сотрудника" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_должности" Type="Int32" />
+    <Property Name="Имя" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Учет">
+    <Key>
+      <PropertyRef Name="ID_Учета" />
+    </Key>
+    <Property Name="ID_Учета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Операция" Type="Int32" Nullable="false" />
+    <Property Name="ID_Номера" Type="Int32" Nullable="false" />
+    <Property Name="ID_Клиента" Type="Int32" Nullable="false" />
+    <Property Name="Дата_въезда" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Дата_выезда" Type="DateTime" Precision="3" />
+    <Property Name="Цена" Type="Double" Nullable="false" />
+    <Property Name="Сотрудник" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HotelDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Должность" EntityType="Self.Должность" />
+    <EntitySet Name="Категория_номера" EntityType="Self.Категория_номера" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" />
+    <EntitySet Name="Номера" EntityType="Self.Номера" />
+    <EntitySet Name="Операции" EntityType="Self.Операции" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
+    <EntitySet Name="Учет" EntityType="Self.Учет" />
+  </EntityContainer>
+</Schema>

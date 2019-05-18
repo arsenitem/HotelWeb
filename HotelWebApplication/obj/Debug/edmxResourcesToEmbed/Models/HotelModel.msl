@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище HotelDBModel1Container" CdmEntityContainer="HotelDBEntities1">
+    <EntitySetMapping Name="Должность">
+      <EntityTypeMapping TypeName="HotelDBModel1.Должность">
+        <MappingFragment StoreEntitySet="Должность">
+          <ScalarProperty Name="ID_должности" ColumnName="ID_должности" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Оклад" ColumnName="Оклад" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Категория_номера">
+      <EntityTypeMapping TypeName="HotelDBModel1.Категория_номера">
+        <MappingFragment StoreEntitySet="Категория номера">
+          <ScalarProperty Name="ID_типа" ColumnName="ID_типа" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Клиенты">
+      <EntityTypeMapping TypeName="HotelDBModel1.Клиенты">
+        <MappingFragment StoreEntitySet="Клиенты">
+          <ScalarProperty Name="ID_клиента" ColumnName="ID_клиента" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Паспорт" ColumnName="Паспорт" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Номера">
+      <EntityTypeMapping TypeName="HotelDBModel1.Номера">
+        <MappingFragment StoreEntitySet="Номера">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Тип" ColumnName="Тип" />
+          <ScalarProperty Name="Вместимость" ColumnName="Вместимость" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Операции">
+      <EntityTypeMapping TypeName="HotelDBModel1.Операции">
+        <MappingFragment StoreEntitySet="Операции">
+          <ScalarProperty Name="ID_Операц" ColumnName="ID_Операц" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудники">
+      <EntityTypeMapping TypeName="HotelDBModel1.Сотрудники">
+        <MappingFragment StoreEntitySet="Сотрудники">
+          <ScalarProperty Name="ID_сотрудника" ColumnName="ID_сотрудника" />
+          <ScalarProperty Name="ID_должности" ColumnName="ID_должности" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Учет">
+      <EntityTypeMapping TypeName="HotelDBModel1.Учет">
+        <MappingFragment StoreEntitySet="Учет">
+          <ScalarProperty Name="ID_Учета" ColumnName="ID_Учета" />
+          <ScalarProperty Name="Операция" ColumnName="Операция" />
+          <ScalarProperty Name="ID_Номера" ColumnName="ID_Номера" />
+          <ScalarProperty Name="ID_Клиента" ColumnName="ID_Клиента" />
+          <ScalarProperty Name="Дата_въезда" ColumnName="Дата въезда" />
+          <ScalarProperty Name="Дата_выезда" ColumnName="Дата выезда" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+          <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

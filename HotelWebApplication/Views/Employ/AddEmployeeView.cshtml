@@ -1,0 +1,26 @@
+﻿@model HotelWebApplication.Models.Сотрудники
+
+@using (Html.BeginForm("AddEmployee","Employ",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <input class="form-control form-control-lg" type="text" placeholder="ФИО" id="left-part" name="fio">
+    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="position">
+        <option selected>Должность</option>
+        <option value="1">Администратор</option>
+        <option value="2">Менеджер</option>
+        <option value="3">Портье</option>
+        <option value="4">Хоз. Персонал</option>
+    </select>
+    <input class="form-control form-control-lg" type="text" placeholder="Номер телефона" id="left-part" name="phone">
+    @*<button type="submit" class="btn btn-dark" id="search_button">Добавить</button>*@
+    <input type="submit" class="btn btn-dark" id="search_button" value="Добавить">
+
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Отмена", "Index")
+</div>

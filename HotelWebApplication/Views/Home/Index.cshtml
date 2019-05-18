@@ -1,0 +1,66 @@
+﻿
+@model List<string[]>
+@{
+    ViewBag.Title = "Домашняя страница";
+}
+
+<div class="row text-center">
+    <div class="col-md-8">
+        <h2>Текущие гости</h2>
+        <table class="table">
+            <tr id="head">
+                <th id="headline">Номер</th>
+                <th id="headline">Тип номера</th>
+                <th id="headline">Вместимость</th>
+                <th id="headline">Цена сут.</th>
+                <th id="headline">Стоимость</th>
+                <th id="headline">ФИО клиента</th>
+                <th id="headline">Дата заезда</th>
+                <th id="headline">Дата выезда</th>
+                <th id="headline">Тип заказа</th>
+            </tr>
+            <tbody>
+                @foreach (var res in Model)
+                {
+                <tr>
+                    <td>@res[0]</td>
+                    <td>@res[1]</td>
+                    <td>@res[2]</td>
+                    <td>@res[3]</td>
+                    <td>@res[4]</td>
+                    <td>@res[5]</td>
+                    <td>@res[6]</td>
+                    <td>@res[7]</td>
+                    <td>@res[8]</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h3>Критерии поиска</h3>
+        @using (Ajax.BeginForm("Find", "Home", new AjaxOptions {UpdateTargetId="target" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <input class="form-control form-control-lg" type="text" placeholder="ФИО Клиента" id="client_fio" name="client_fio">
+        @*<select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="type">
+            <option selected>Тип номера</option>
+            <option value="1">Эконом</option>
+            <option value="2">Стандарт</option>
+            <option value="3">Комфорт</option>
+            <option value="4">Премиум</option>
+            <option value="5">Люкс</option>
+        </select>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
+            <option selected>Вместимость</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>*@
+        <input type="submit" value="Найти" class="btn btn-default" id="left-part" onclick="FindClient" />
+}
+        <div id="target"></div>
+    </div>
+</div>

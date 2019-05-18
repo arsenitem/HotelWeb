@@ -1,0 +1,91 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+#navbar{
+    font-size:20px;
+}
+#main {
+    width:100%;
+}
+#foot {
+    text-align:center;
+}
+#tab {
+    width: 100%;
+    text-align: center;
+}
+#headline {
+    text-align: center;
+    padding-left:30px;
+}
+#head {
+    background-color: #222222;
+    color: darkgray;
+}
+#left-part {
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#inlineFormCustomSelect {
+    font-size:18px;
+    margin-top: 20px;
+    display: block;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:5px;
+}
+#search_button {
+    margin-top: 20px;
+    width: 280px;
+}
+#emp_left{
+    padding-top:60px;
+}
+#search_button_emp {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+    width: 280px;
+}
+#del_link{
+    display:block;
+    padding-top:10px;
+    cursor:pointer;
+}
+.selected_row{
+    background-color:cornflowerblue;
+}
+#new_order{
+    margin-left:auto;
+    margin-right:auto;
+}
+#client_fio {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

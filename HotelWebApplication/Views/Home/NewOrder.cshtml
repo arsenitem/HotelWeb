@@ -1,0 +1,72 @@
+﻿@model HotelWebApplication.Models.Учет
+
+@{
+    ViewBag.Title = "NewOrder";
+}
+@if (ViewBag.Alert == true)
+{
+    <div class="alert alert-success">Запись добавлена</div>
+}
+    <div id="new_order" class="text-center">
+
+        @using (Html.BeginForm("NewOrder", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <h2>Новый заказ</h2>
+        <input class="form-control form-control-lg" type="text" placeholder="Номер паспорта" id="left-part" name="passport">
+
+        <input class="form-control form-control-lg" type="text" placeholder="ФИО" id="left-part" name="fio">
+
+
+
+        <input class="form-control form-control-lg" type="text" placeholder="Номер телефона" id="left-part" name="phone">
+
+
+
+        @*<select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="room_num">
+            <option selected>Номер</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>*@
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="room_num">
+            <option selected>Номер</option>
+            @for (int i = 0; i < ViewBag.Rooms.Count; i++)
+        {
+
+            <option value="@i">@ViewBag.Rooms[i]</option>
+    }
+        </select>
+
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="order_type">
+            <option selected>Тип заказа</option>
+            <option value="1">Бронь</option>
+            <option value="2">Заселение</option>
+
+        </select>
+
+
+
+        @*@Html.EditorFor(model => model.Дата_въезда, new { htmlAttributes = new { @class = "form-control", @id = "left-part" } })*@
+        <label for="inputDate" id="left-part">Дата заезда</label>
+        <input type="date" class="form-control" id="left-part" placeholder="Дата заезда" name="begin_date">
+        <label for="inputDate"  id="left-part">Дата выезда</label>
+        <input type="date" class="form-control" id="left-part" placeholder="Выезда" name="end_date">
+
+        @*@Html.EditorFor(model => model.Дата_выезда, new { htmlAttributes = new { @class = "form-control", @id = "left-part" } })*@
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="emp">
+            <option selected>Сотрудник</option>
+            @for (int i = 0; i < ViewBag.Emp.Count; i++)
+        {
+            <option value="@ViewBag.Emp[i]">@ViewBag.Emp[i]</option>
+    }
+        </select>
+
+        <input type="submit" value="Добавить" class="btn btn-default" id="left-part" />
+
+
+}
+    </div>
+

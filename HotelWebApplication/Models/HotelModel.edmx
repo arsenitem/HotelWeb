@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище HotelDBModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="ID_должности" />
+          </Key>
+          <Property Name="ID_должности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Оклад" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Категория номера">
+          <Key>
+            <PropertyRef Name="ID_типа" />
+          </Key>
+          <Property Name="ID_типа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Описание" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Клиенты">
+          <Key>
+            <PropertyRef Name="ID_клиента" />
+          </Key>
+          <Property Name="ID_клиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Паспорт" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Номера">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Тип" Type="int" Nullable="false" />
+          <Property Name="Вместимость" Type="int" Nullable="false" />
+          <Property Name="Цена" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Операции">
+          <Key>
+            <PropertyRef Name="ID_Операц" />
+          </Key>
+          <Property Name="ID_Операц" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сотрудники">
+          <Key>
+            <PropertyRef Name="ID_сотрудника" />
+          </Key>
+          <Property Name="ID_сотрудника" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_должности" Type="int" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Учет">
+          <Key>
+            <PropertyRef Name="ID_Учета" />
+          </Key>
+          <Property Name="ID_Учета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Операция" Type="int" Nullable="false" />
+          <Property Name="ID_Номера" Type="int" Nullable="false" />
+          <Property Name="ID_Клиента" Type="int" Nullable="false" />
+          <Property Name="Дата въезда" Type="datetime" Nullable="false" />
+          <Property Name="Дата выезда" Type="datetime" />
+          <Property Name="Цена" Type="float" Nullable="false" />
+          <Property Name="Сотрудник" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище HotelDBModel1Container">
+          <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Категория номера" EntityType="Self.Категория номера" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Номера" EntityType="Self.Номера" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Операции" EntityType="Self.Операции" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Учет" EntityType="Self.Учет" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="ID_должности" />
+          </Key>
+          <Property Name="ID_должности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Оклад" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Категория_номера">
+          <Key>
+            <PropertyRef Name="ID_типа" />
+          </Key>
+          <Property Name="ID_типа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Описание" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Клиенты">
+          <Key>
+            <PropertyRef Name="ID_клиента" />
+          </Key>
+          <Property Name="ID_клиента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ФИО" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Паспорт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Номера">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Тип" Type="Int32" Nullable="false" />
+          <Property Name="Вместимость" Type="Int32" Nullable="false" />
+          <Property Name="Цена" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Операции">
+          <Key>
+            <PropertyRef Name="ID_Операц" />
+          </Key>
+          <Property Name="ID_Операц" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сотрудники">
+          <Key>
+            <PropertyRef Name="ID_сотрудника" />
+          </Key>
+          <Property Name="ID_сотрудника" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_должности" Type="Int32" />
+          <Property Name="Имя" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Учет">
+          <Key>
+            <PropertyRef Name="ID_Учета" />
+          </Key>
+          <Property Name="ID_Учета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Операция" Type="Int32" Nullable="false" />
+          <Property Name="ID_Номера" Type="Int32" Nullable="false" />
+          <Property Name="ID_Клиента" Type="Int32" Nullable="false" />
+          <Property Name="Дата_въезда" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Дата_выезда" Type="DateTime" Precision="3" />
+          <Property Name="Цена" Type="Double" Nullable="false" />
+          <Property Name="Сотрудник" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HotelDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Должность" EntityType="Self.Должность" />
+          <EntitySet Name="Категория_номера" EntityType="Self.Категория_номера" />
+          <EntitySet Name="Клиенты" EntityType="Self.Клиенты" />
+          <EntitySet Name="Номера" EntityType="Self.Номера" />
+          <EntitySet Name="Операции" EntityType="Self.Операции" />
+          <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
+          <EntitySet Name="Учет" EntityType="Self.Учет" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HotelDBModel1Container" CdmEntityContainer="HotelDBEntities1">
+          <EntitySetMapping Name="Должность">
+            <EntityTypeMapping TypeName="HotelDBModel1.Должность">
+              <MappingFragment StoreEntitySet="Должность">
+                <ScalarProperty Name="ID_должности" ColumnName="ID_должности" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Оклад" ColumnName="Оклад" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Категория_номера">
+            <EntityTypeMapping TypeName="HotelDBModel1.Категория_номера">
+              <MappingFragment StoreEntitySet="Категория номера">
+                <ScalarProperty Name="ID_типа" ColumnName="ID_типа" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Клиенты">
+            <EntityTypeMapping TypeName="HotelDBModel1.Клиенты">
+              <MappingFragment StoreEntitySet="Клиенты">
+                <ScalarProperty Name="ID_клиента" ColumnName="ID_клиента" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Паспорт" ColumnName="Паспорт" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Номера">
+            <EntityTypeMapping TypeName="HotelDBModel1.Номера">
+              <MappingFragment StoreEntitySet="Номера">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Тип" ColumnName="Тип" />
+                <ScalarProperty Name="Вместимость" ColumnName="Вместимость" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Операции">
+            <EntityTypeMapping TypeName="HotelDBModel1.Операции">
+              <MappingFragment StoreEntitySet="Операции">
+                <ScalarProperty Name="ID_Операц" ColumnName="ID_Операц" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сотрудники">
+            <EntityTypeMapping TypeName="HotelDBModel1.Сотрудники">
+              <MappingFragment StoreEntitySet="Сотрудники">
+                <ScalarProperty Name="ID_сотрудника" ColumnName="ID_сотрудника" />
+                <ScalarProperty Name="ID_должности" ColumnName="ID_должности" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Учет">
+            <EntityTypeMapping TypeName="HotelDBModel1.Учет">
+              <MappingFragment StoreEntitySet="Учет">
+                <ScalarProperty Name="ID_Учета" ColumnName="ID_Учета" />
+                <ScalarProperty Name="Операция" ColumnName="Операция" />
+                <ScalarProperty Name="ID_Номера" ColumnName="ID_Номера" />
+                <ScalarProperty Name="ID_Клиента" ColumnName="ID_Клиента" />
+                <ScalarProperty Name="Дата_въезда" ColumnName="Дата въезда" />
+                <ScalarProperty Name="Дата_выезда" ColumnName="Дата выезда" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+                <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

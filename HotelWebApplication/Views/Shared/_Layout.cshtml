@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/img/38363.png" type="image/png">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Content/img/38363.png" alt="logo" width="50px" height="50px" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Гости", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Программа", "About", "Home")</li>
+                    <li>@Html.ActionLink("Сотрудники", "Index", "Employ")</li>
+                    <li>@Html.ActionLink("Номера", "Rooms", "Home")</li>
+                    <li>@Html.ActionLink("Оформить заказ", "NewOrder", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @RenderBody()
+        <hr />
+        <footer id="foot">
+            <p>&copy; @DateTime.Now.Year – Учебная пркатика Харламов А.Д.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+    @RenderSection("scripts", required: false)
+  
+    <script type="text/javascript">
+        var wid;
+        $('table').find('tr').click(function () {
+            $('tr').each(function (i, elem) {
+                ($(this).removeClass('selected_row'));
+               // ($(this).firstChild.removeClass('worker_id'))
+            });
+            this.className += "selected_row";
+            wid=this.firstElementChild.innerHTML
+        });
+        function DeleteEmp() {
+            $('table').find('tr').each(function (i, elem) {
+                if ($(this).hasClass('selected_row')) {
+                    //var index = parseInt($(this).index() + 1)
+                    var id =wid
+                    $.ajax({
+                        url: '@Url.Action("RemoveWorker", "Employ")?id='+id,
+                        type: 'post',
+                        success: function () {
+                            $(this).remove();
+                            location.reload();
+                        }
+                    });
+                }
+            });
+        }
+         function DeleteRoom() {
+            $('table').find('tr').each(function (i, elem) {
+                if ($(this).hasClass('selected_row')) {
+                    //var index = parseInt($(this).index() + 1)
+                    var id =wid
+                    $.ajax({
+                        url: '@Url.Action("RemoveRoom", "Home")?id='+id,
+                        type: 'post',
+                        success: function () {
+                            $(this).remove();
+                            location.reload();
+                        }
+                    });
+                }
+            });
+        }
+         function FindClient() {
+             var fio = document.getElementById("client_fio").value;
+             $.ajax({
+                  url: '@Url.Action("Find", "Home")?fio='+fio,
+                        type: 'post',
+                        success: function (msg) {
+                            var h = document.createElement('h4');
+                            h.innerHTML = msg;
+                            $('#toapp').append(h);
+                        }
+             });
+         }
+         $('.input-group.date').datepicker({ format: "dd.mm.yyyy" });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@using (Html.BeginForm("AddRoom", "Home",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="room_type">
+        <option selected>Тип номера</option>
+        <option value="1">Эконом</option>
+        <option value="2">Комфорт</option>
+        <option value="3">Люкс</option>
+        <option value="4">Премиум</option>
+    </select>
+    <input class="form-control form-control-lg" type="text" placeholder="Вместимость" id="left-part" name="room_size">
+    <input class="form-control form-control-lg" type="text" placeholder="Цена за сутки" id="left-part" name="room_price">
+    <input type="submit" class="btn btn-dark" id="search_button" value="Добавить">
+
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Отмена", "Rooms")
+</div>

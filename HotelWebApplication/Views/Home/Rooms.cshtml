@@ -1,0 +1,34 @@
+﻿@model List<string[]>
+@{
+    ViewBag.Title = "Номера";
+}
+<div class="row text-center">
+    <div class="col-md-8">
+        <h2>Номера</h2>
+        <table class="table">
+            <tr id="head">
+                <th id="headline">Номер</th>
+                <th id="headline">Тип номера</th>
+                <th id="headline">Вместимость</th>
+                <th id="headline">Цена</th>
+                
+
+            </tr>
+            <tbody id="tbody">
+                @foreach (var res in Model)
+                 {
+            <tr>
+                <td>@res[0]</td>
+                <td>@res[1]</td>
+                <td>@res[2]</td>
+                <td>@res[3]</td>
+            </tr>
+                  }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4" id="emp_left">
+        @Ajax.ActionLink("Добавить комнату", "AddRoomView", new AjaxOptions { UpdateTargetId = "emp_left" })
+        <a id="del_link" onclick="DeleteRoom()"> Удалить комнату</a>
+    </div>
+</div>
